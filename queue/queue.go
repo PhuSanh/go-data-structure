@@ -1,12 +1,11 @@
 package queue
 
 import (
-	"github.com/cheekybits/genny/generic"
 	"sync"
 )
 
 // Item the type of the queue
-type Item generic.Type
+type Item interface {}
 
 // ItemQueue the queue of Items
 type ItemQueue struct {
