@@ -38,7 +38,7 @@ func (s *ItemStack) Pop() *Item {
 	return &t
 }
 
-func (s *ItemStack) Empty() bool {
+func (s *ItemStack) IsEmpty() bool {
 	s.lock.Lock()
 	defer s.lock.Unlock()
 	return len(s.items) == 0
