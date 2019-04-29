@@ -38,8 +38,14 @@ func (s *ItemStack) Pop() *Item {
 	return &t
 }
 
+// IsEmpty returns true if the stack is empty
 func (s *ItemStack) IsEmpty() bool {
 	s.lock.Lock()
 	defer s.lock.Unlock()
 	return len(s.items) == 0
+}
+
+// Size returns the number of Items in the stack
+func (s *ItemStack) Size() int {
+	return len(s.items)
 }
