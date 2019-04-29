@@ -17,7 +17,7 @@ func (s *ItemQueueCustom) New() interface{} {
 }
 
 // New creates a new ItemQueue
-func (s *ItemQueueCustom) Enqueue(t Item) {
+func (s *ItemQueueCustom) Enqueue(t interface{}) {
 	s.lock.Lock()
 	defer s.lock.Unlock()
 
@@ -38,7 +38,7 @@ func (s *ItemQueueCustom) Dequeue() interface{} {
 func (s *ItemQueueCustom) Front() interface{} {
 	s.lock.Lock()
 	defer s.lock.Unlock()
-	t := s.items[len(s.items) - 1]
+	t := s.items[0]
 	return t
 }
 
